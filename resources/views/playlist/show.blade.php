@@ -15,6 +15,18 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="card-content">
+                <div class="content">
+
+                    <p>Note des musiques :</p>
+                    <ul>
+                        @foreach($playlist->musiques as $musique)
+                            <li>{{ $musique->notemus }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
             <footer class="card-footer is-centered">
             <a class="button is-info" href="{{ route('playlist.index') }}">Retour à la liste</a>
         </footer>

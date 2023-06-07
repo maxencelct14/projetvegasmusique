@@ -16,6 +16,7 @@ class CreateMusiquesTable extends Migration
         Schema::create('musiques', function (Blueprint $table) {
             $table->id();
             $table->string('titremus',100);
+            $table->string('notemus',1);
             $table->timestamps();
         });
     }

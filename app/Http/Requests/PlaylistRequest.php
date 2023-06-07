@@ -24,7 +24,8 @@ class PlaylistRequest extends FormRequest
     public function rules()
     {
         return [
-            'titreplay' => 'bail|required|min:1|max:100|string'
+            'titreplay' => 'bail|required|min:1|max:100|string',
+            'notemus' => 'bail|required|min:1|max:5|string'
         ];
     }
 }

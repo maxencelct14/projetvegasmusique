@@ -9,10 +9,10 @@ class MusiqueFactory extends Factory
     /**
      * Define the model's default state.
      *
-     * @return array
+     * @return array|bool
      */
     public function definition()
     {
-        return ['titremus'=>$this->faker->text(100)];
+        return ['titremus'=>$this->faker->text(100)] && ['notemus'=>$this->faker->text(1)];
     }
 }

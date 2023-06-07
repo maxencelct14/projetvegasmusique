@@ -25,6 +25,20 @@
                 @enderror
 
                 <div class="field">
+                    <label class="label">Note de la musique</label>
+                    <div class="select is-multiple">
+                        <select name="perss[]" multiple>
+                            @foreach($musiques as $musique)
+                                <option value="{{ $musique->id }}" {{ in_array($musique->id, old('perss') ?: []) ? 'selected' : '' }}>{{ $musique->notemus }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    @error('notemus')
+                    <p class="help is-danger">{{$message}}</p>
+                    @enderror
+                </div>
+
+                <div class="field">
                     <label class="label">Nom de la playlist</label>
                     <div class="control">
                         <input type="text" size="100" name="titreplay" placeholder="Titre de la playlist" value="{{ old('titreplay') }}">

@@ -24,6 +24,17 @@
                 </div>
 
                 <div class="field">
+                    <label class="label">Notes des musiques</label>
+                    <div class="select is-multiple">
+                        <select name="perss[]" multiple>
+                            @foreach($musiques as $musique)
+                                <option value="{{ $musique->id }}" {{ in_array($musique->id, old('perss') ?: $playlist->musiques->pluck('id')->all()) ? 'selected' : '' }}>{{ $musique->notemus }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
                     <label for="titreplay" class="label">Titre de la playlist</label>
 
                     <div class="control">

@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {return view('welcome');});
 Route::resource('playlist',PlaylistController::class);
 Route::get('musique/{titremus}/playlists', [PlaylistController::class, 'index'])->name('playlist.musique');
+Route::get('musique/{notemus}/playlists', [PlaylistController::class, 'index'])->name('playlist.musique');
 
 Auth::routes();
 

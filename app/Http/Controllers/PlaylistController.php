@@ -20,13 +20,17 @@ class PlaylistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($titremus=null)
+    public function index($titremus=null,$notemus=null)
     {
         //si le nom de la musique est renseigné, on récupère tous les playlists avec cette musique, sinon on récupère tous les playlists
-        $query = $titremus ? Musique::where('titremus',$titremus)->firstOrFail()->playlists() :Playlist::query();
+        if ($titremus && $notemus) {
+            $query = Musique::where('titremus,notemus',$titremus,$notemus)->firstOrFail()->playlists();
+        } else {
+            $query = Playlist::query();
+        }
         $playlists=$query->orderBy('id')->get();
         $musiques=Musique::all();
-        return view('playlist/index',compact('playlists','musiques','titremus'));
+        return view('playlist/index',compact('playlists','musiques','titremus,notemus'));
     }
 
     /**
